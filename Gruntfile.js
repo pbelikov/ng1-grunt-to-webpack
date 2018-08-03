@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
             'src/app/*.module.js',
             'src/app/**/*.module.js',
-            'src/app/*.states.js',
+            'src/app/*.config.js',
             'src/app/*.component.js',
             'src/app/*.controller.js',
             'src/app/**/*.js',

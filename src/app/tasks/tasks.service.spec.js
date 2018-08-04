@@ -1,5 +1,5 @@
 describe('TasksService', function() {
-  var TasksService;
+  let TasksService;
 
   beforeEach(angular.mock.module('demoApp.tasks'));
 
@@ -11,9 +11,9 @@ describe('TasksService', function() {
     TasksService = null;
   });
 
-  describe('getList', function() {
+  describe('getList', () => {
     it('Test 1: will return list of tasks, with uppercased text', function() {
-      var actual;
+      let actual;
 
       actual = TasksService.getList();
 

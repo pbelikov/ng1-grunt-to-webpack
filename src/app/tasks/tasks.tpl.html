@@ -1,7 +1,7 @@
-{{ tasksCtrl.about }}
+{{ $ctrl.about }}
 
 <ul>
-    <li ng-repeat="task in tasksCtrl.tasks">
+    <li ng-repeat="task in $ctrl.tasks">
         {{ task.text }}
     </li>
 </ul>

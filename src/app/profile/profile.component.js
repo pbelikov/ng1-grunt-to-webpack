@@ -1,11 +1,6 @@
-(function() {
-  'use strict';
+import {ProfileController} from "./profile.controller";
 
-  angular
-    .module('demoApp.profile')
-    .component('profile', {
-      controller: 'profileController',
-      controllerAs: 'profileCtrl',
-      templateUrl: 'src/app/profile/profile.tpl.html'
-    });
-})();
+export const profileComponent = {
+  controller: ProfileController,
+  templateUrl: 'src/app/profile/profile.tpl.html'
+};

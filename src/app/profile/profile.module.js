@@ -1,5 +1,6 @@
-(function() {
-  'use strict';
+import {profileComponent} from "./profile.component";
 
-  angular.module('demoApp.profile', []);
-})();
+export const ProfileModule = angular
+  .module('demoApp.profile', [])
+  .component('profile', profileComponent)
+  .name;

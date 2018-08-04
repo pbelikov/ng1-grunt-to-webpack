@@ -1,5 +1,6 @@
-(function() {
-  'use strict';
+import { UtilsService } from './utils.service';
 
-  angular.module('demoApp.utils', []);
-})();
+export const UtilsModule = angular
+  .module('demoApp.utils', [])
+  .service('UtilsService', UtilsService)
+  .name;

@@ -11,17 +11,17 @@ describe('UtilsService', function() {
     UtilsService = null;
   });
 
-  describe('uppercaseText', function() {
+  describe('uppercaseText', () => {
     it('Test 1: will uppercase the text, if it is provided', function() {
-      var actual;
+      let actual;
 
       actual = UtilsService.uppercaseText('text');
 
       expect(actual).toEqual('TEXT');
     });
 
-    it('Test 2: will not fail if text is empty', function() {
-      var actual;
+    it('Test 2: will not fail if text is empty', () => {
+      let actual;
 
       actual = UtilsService.uppercaseText(null);
 

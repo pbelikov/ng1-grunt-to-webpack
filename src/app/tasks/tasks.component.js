@@ -1,9 +1,6 @@
-(function() {
-  'use strict';
+import { TasksController } from './tasks.controller';
 
-  angular.module('demoApp.tasks').component('tasks', {
-    controller: 'tasksController',
-    controllerAs: 'tasksCtrl',
-    templateUrl: 'src/app/tasks/tasks.tpl.html'
-  });
-})();
+export const tasksComponent = {
+  controller: TasksController,
+  templateUrl: 'src/app/tasks/tasks.tpl.html'
+};

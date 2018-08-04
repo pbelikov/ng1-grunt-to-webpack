@@ -1,39 +1,10 @@
-(function() {
-  'use strict';
+import {HOME_STATE, DEFAULT_STATE, PROFILE_STATE, TASKS_STATE} from './app.routes';
 
-  angular
-    .module('demoApp')
-    .config(function($stateProvider, $urlRouterProvider) {
+export default function($stateProvider, $urlRouterProvider) {
+   $stateProvider.state(HOME_STATE);
+   $stateProvider.state(TASKS_STATE);
+   $stateProvider.state(PROFILE_STATE);
+   $stateProvider.state(DEFAULT_STATE);
 
-      var tasksState = {
-        name: 'home.tasks',
-        url: '/tasks',
-        component: 'tasks'
-      };
-
-      var profileState = {
-        name: 'home.profile',
-        url: '/profile',
-        component: 'profile'
-      };
-
-      var homeState = {
-        name: 'home',
-        url: '/home',
-        component: 'app'
-      };
-
-      var defaultState = {
-        name: 'default',
-        url: '/',
-        redirectTo: 'home'
-      };
-
-      $stateProvider.state(homeState);
-      $stateProvider.state(tasksState);
-      $stateProvider.state(profileState);
-      $stateProvider.state(defaultState);
-
-      $urlRouterProvider.otherwise('/');
-    });
-})();
+   $urlRouterProvider.otherwise('/');
+}

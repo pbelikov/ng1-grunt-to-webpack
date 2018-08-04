@@ -1,7 +1,4 @@
-(function() {
-  'use strict';
-
-  angular
+export const NgUtilsService = angular
     .module('demoApp.utils')
     .service('UtilsService', UtilsService);
 
@@ -14,4 +11,3 @@
       return text ? text.toUpperCase() : text;
     }
   }
-})();

@@ -1,7 +1,4 @@
-(function() {
-  'use strict';
-
-  angular
+export const NgTasksController = angular
     .module('demoApp.tasks')
     .controller('tasksController', tasksController);
 
@@ -15,4 +12,3 @@
       ctrl.tasks = TasksService.getList();
     }
   }
-})();

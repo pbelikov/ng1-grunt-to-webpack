@@ -1,7 +1,7 @@
 describe('UtilsService', function() {
   var UtilsService;
 
-  beforeEach(module('demoApp.tasks'));
+  beforeEach(angular.mock.module('demoApp.tasks')); // <<<
 
   beforeEach(inject(function(_UtilsService_) {
     UtilsService = _UtilsService_;

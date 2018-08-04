@@ -1,0 +1,1 @@
+{"version":3,"sources":["profile.module.js"],"names":["angular","module"],"mappings":"AAAA;;AAEA,CAAC,YAAY;AACX;;AAEAA,UAAQC,MAAR,CAAe,iBAAf,EAAkC,EAAlC;AACD,CAJD;AAKA","file":"profile.module.js","sourcesContent":["'use strict';\n\n(function () {\n  'use strict';\n\n  angular.module('demoApp.profile', []);\n})();\n//# sourceMappingURL=profile.module.js.map\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["tasks.module.js"],"names":["angular","module"],"mappings":"AAAA;;AAEA,CAAC,YAAY;AACX;;AAEAA,UAAQC,MAAR,CAAe,eAAf,EAAgC,CAAC,eAAD,CAAhC;AACD,CAJD;AAKA","file":"tasks.module.js","sourcesContent":["'use strict';\n\n(function () {\n  'use strict';\n\n  angular.module('demoApp.tasks', ['demoApp.utils']);\n})();\n//# sourceMappingURL=tasks.module.js.map\n"]}

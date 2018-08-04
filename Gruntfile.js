@@ -2,29 +2,29 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    uglify: {
-      dist: {
-        files: {
-          'build/app.js': [
-            'node_modules/angular/angular.js',
-            'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
-            'src/app/*.module.js',
-            'src/app/**/*.module.js',
-            'src/app/*.config.js',
-            'src/app/*.component.js',
-            'src/app/*.controller.js',
-            'src/app/**/*.js',
-            'tmp/*.js'
-          ]
-        },
-        options: {
-          mangle: false,
-          sourceMap: {
-            includeSources: true
-          }
-        }
-      }
-    },
+    // uglify: {
+    //   dist: {
+    //     files: {
+    //       'build/app.js': [
+    //         // 'node_modules/angular/angular.js',
+    //         // 'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
+    //         'src/app/*.module.js',
+    //         'src/app/**/*.module.js',
+    //         'src/app/*.config.js',
+    //         'src/app/*.component.js',
+    //         'src/app/*.controller.js',
+    //         'src/app/**/*.js',
+    //         'tmp/*.js'
+    //       ]
+    //     },
+    //     options: {
+    //       mangle: false,
+    //       sourceMap: {
+    //         includeSources: true
+    //       }
+    //     }
+    //   }
+    // },
 
     clean: {
       temp: {
@@ -35,25 +35,25 @@ module.exports = function(grunt) {
       }
     },
 
-    concat: {
-      options: {
-        separator: ';'
-      },
-      dist: {
-        src: [
-          'node_modules/angular/angular.js',
-          'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
-          'src/app/*.module.js',
-          'src/app/**/*.module.js',
-          'src/app/*.states.js',
-          'src/app/*.component.js',
-          'src/app/*.controller.js',
-          'src/app/**/*.js',
-          'tmp/*.js'
-        ],
-        dest: 'build/app.js'
-      }
-    },
+    // concat: {
+    //   options: {
+    //     separator: ';'
+    //   },
+    //   dist: {
+    //     src: [
+    //       'node_modules/angular/angular.js',
+    //       'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
+    //       'src/app/*.module.js',
+    //       'src/app/**/*.module.js',
+    //       'src/app/*.states.js',
+    //       'src/app/*.component.js',
+    //       'src/app/*.controller.js',
+    //       'src/app/**/*.js',
+    //       'tmp/*.js'
+    //     ],
+    //     dest: 'build/app.js'
+    //   }
+    // },
 
     connect: {
       server: {
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
     watch: {
       pack: {
         files: [ 'Gruntfile.js', 'src/app/**/*.js', 'src/app/**/*.html', '!src/app/**/*.spec.js', 'assets/**/*.less' ],
-        tasks: [ /*'karma:unit',*/ 'ngtemplates', 'less:dist', 'uglify:dist', 'clean:temp' ],
+        tasks: [ /*'karma:unit',*/ 'ngtemplates', 'less:dist', 'browserify:code', 'clean:temp' ],
         options: {
           atBegin: true
         }
@@ -130,6 +130,28 @@ module.exports = function(grunt) {
           module: 'demoApp'
         }
       }
+    },
+
+    browserify: {
+      code: {
+        src: [
+          'node_modules/angular/angular.js',
+          'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
+          'src/app/*.module.js',
+          'src/app/**/*.module.js',
+          'src/app/*.config.js',
+          'src/app/*.component.js',
+          'src/app/*.controller.js',
+          'src/app/**/*.js',
+          'tmp/*.js',
+          '!src/app/**/*.spec.js'
+        ],
+        dest: './build/app.js',
+        options: {
+          browserifyOptions: { debug: true },
+          transform: [['babelify', { 'presets': ['env'] }]]
+        }
+      }
     }
   });
 
@@ -143,6 +165,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('package', [ 'clean:dist', 'copy:main', /*'karma:unit', */ 'ngtemplates',
     'connect:server', 'watch:pack' ]);
